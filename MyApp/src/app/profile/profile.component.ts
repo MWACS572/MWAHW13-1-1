@@ -16,12 +16,8 @@ export class ProfileComponent implements OnInit {
   studentProfile;
   constructor(private auth:AuthService,private dbService:db, private route:ActivatedRoute) {
     this.subscription = route.queryParams.subscribe(param=>this.id=param['id']);
-    if(this.dbService.checkId(parseInt(this.id))){
-      auth.isValidId()
-    }else{
-      auth.isNotValidId();
-    }
-    console.log("asdf"+this.dbService.getBoole())
+
+
 
   }
 
@@ -29,11 +25,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
     this.studentProfile = this.dbService.getData(parseInt(this.id));
-    if(this.dbService.checkId(parseInt(this.id))){
-      this.auth.isValidId()
-    }else{
-      this.auth.isNotValidId();
-    }
+    
   }
   ngOnDestroy(){
     this.subscription.unsubscribe();

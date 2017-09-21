@@ -1,0 +1,4 @@
+<h3>Students' Link</h3>
+<ul>
+  <li *ngFor = "let student of students; let i = index;"><a [routerLink]="['/profile']" [queryParams]={id:i+1} (click)='getId(i+1)' >{{i+1}} - {{student.name}}</a></li>
+</ul>

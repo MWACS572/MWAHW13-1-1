@@ -15,17 +15,14 @@ export class ProfileComponent implements OnInit {
   subscription:Subscription;
   studentProfile;
   constructor(private auth:AuthService,private dbService:db, private route:ActivatedRoute) {
-    this.subscription = route.queryParams.subscribe(param=>this.id=param['id']);
-
-
-
+    this.subscription = route.queryParams.subscribe(param=>{this.id=param['id']});
   }
 
 
   ngOnInit() {
 
     this.studentProfile = this.dbService.getData(parseInt(this.id));
-    
+
   }
   ngOnDestroy(){
     this.subscription.unsubscribe();

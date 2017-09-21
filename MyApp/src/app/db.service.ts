@@ -29,14 +29,15 @@ export class db{
     return this.boole;
   }
   checkId(id){
-   this.boole = false;
+
     for(let i = 0; i<this.data.length; i++){
 
-      if((id)!=this.data[i].id){
+      if(parseInt(id)==parseInt(this.data[i].id)){
         this.boole = true;
         return true;
       }else{
         this.boole = false;
+
       }
     }
     return this.boole;
